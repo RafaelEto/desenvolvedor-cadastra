@@ -6,14 +6,66 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor Cadastra</title>
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="/main.css" />
 </head>
 
 <body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__box">
+        <div class="header__logo">
+          <img src="/img/logo.png" alt="" class="header__logo--image"/>
+        </div>
 
+        <div class="header__minicart">
+          <img src="/img/minicart-icon.png" class="header__minicart--icon"/>
+          <span class="header__minicart--count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="category">
+    <section id="title" class="category__container">
+      <div class="category__top">
+        <div class="category__title">
+          <h1>Blusas</h1>
+        </div>
+
+        <select class="category__orderby">
+          <option value="">Ordenar por:</option>
+          <option value="OrderByPriceASC" class="category__orderby--option">Mais recentes</option>
+          <option value="OrderByPriceDESC" class="category__orderby--option">Menor preço</option>
+          <option value="OrderByTopSaleDESC" class="category__orderby--option">Maior preço</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="content" class="category__container">
+      <div class="category__wrapper">
+        <div class="filter">
+
+        </div>
+
+        <div class="shelf">
+          <div id="shelf-list" class="shelf__list">
+          </div>
+
+          <div class="shelf__load">
+            <button class="shelf__load--button">
+              CARREGAR MAIS
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">CADASTRA: IMPLANTAÇÃO DE E-COMMERCE VTEX</p>
+  </footer>
 </body>
-<h1>Desafio Cadastra</h1>
 
-<script src="bundle.js"></script>
+<script src="/bundle.js"></script>
 
 </html>
