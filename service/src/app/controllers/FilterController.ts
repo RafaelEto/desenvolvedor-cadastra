@@ -3,9 +3,9 @@ import FilterRepository from "../repositories/FilterRepository";
 
 class FilterController {
   public async index(request: Request, response: Response) {
-    const products = await FilterRepository.findAll();
+    const filters = await FilterRepository.findAll();
 
-    return products;
+    response.status(200).send(filters);
   }
 }
 

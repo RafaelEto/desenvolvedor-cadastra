@@ -1,23 +1,17 @@
 import ProductRepository from "./ProductRepository";
-import { Product } from "../ts/Product";
-import { Filters } from "../ts/Filters";
+import { Product } from "../typings/Product";
+import { Filters } from "../typings/Filters";
 
-export default class FilterRepository {
-  static async findAll() {
-    const products: Product[] = await ProductRepository.findAll();
+class FilterRepository {
+  getColors(products: Product[]) {
+    const colorsList = products.map((item) => item.color);
+    const colorsRemoveDuplicated = [...new Set(colorsList)];
+    const colorsOrdered = colorsRemoveDuplicated.sort();
 
-    let colorsArray: Set<string> = new Set();
-    products.map((item: Product) => {
-      colorsArray.add(item.color);
-    });
-    let colorsOrdered: string[] = Array.from(colorsArray).sort();
+    return colorsOrdered;
+  }
 
-    let sizesArray: Set<string> = new Set();
-    products.map((item: Product) => {
-      item.size.forEach((variacao) => {
-        sizesArray.add(variacao);
-      });
-    });
+  getSizes(products: Product[]) {
     const order = [
       "PP",
       "P",
@@ -33,32 +27,43 @@ export default class FilterRepository {
       "44",
       "46",
     ];
-
-    let sizesOrdered: string[] = Array.from(sizesArray).sort(
-      (a: string, b: string) => {
-        return order.indexOf(a) - order.indexOf(b);
-      }
-    );
-
-    let prices: Set<number> = new Set();
-    products.map((item: Product) => {
-      prices.add(item.price);
+    const sizesArray = products.map((item) => item.size);
+    const sizesList = sizesArray.reduce((acc, curr) => acc.concat(curr), []);
+    const sizesRemoveDuplicated = [...new Set(sizesList)];
+    const sizesOrdered = sizesRemoveDuplicated.sort((a: string, b: string) => {
+      return order.indexOf(a) - order.indexOf(b);
     });
-    let pricesOrdered: number[] = Array.from(prices).sort();
-    let minPrice = Math.min(...pricesOrdered);
-    let maxPrice = Math.max(...pricesOrdered);
+
+    return sizesOrdered;
+  }
+
+  getPrice(products: Product[]) {
+    const prices = products.map((item) => item.price);
+    const pricesOrdered = prices.sort();
+    const minPrice = Math.min(...pricesOrdered);
+    const maxPrice = Math.max(...pricesOrdered);
+
+    return { minPrice, maxPrice };
+  }
+
+  public async findAll() {
+    const products = await ProductRepository.findAll();
+
+    const colors = this.getColors(products);
+    const sizes = this.getSizes(products);
+    const { minPrice, maxPrice } = this.getPrice(products);
 
     const filters: Filters = {
-      colors: colorsOrdered,
-      sizes: sizesOrdered,
+      colors,
+      sizes,
       priceRange: {
         min: minPrice,
         max: maxPrice,
       },
     };
 
-    return new Promise((resolve, reject) => {
-      resolve(filters);
-    });
+    return filters;
   }
 }
+
+export default new FilterRepository();

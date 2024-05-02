@@ -1,10 +1,12 @@
 import products from "../../products.json";
-import { Product } from "../ts/Product";
+import { Product } from "../typings/Product";
 
-export default class ProductRepository {
-  static findAll(): Promise<Product[]> {
+class ProductRepository {
+  public findAll(): Promise<Product[]> {
     return new Promise((resolve, reject) => {
       resolve(products);
     });
   }
 }
+
+export default new ProductRepository();
