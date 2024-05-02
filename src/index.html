@@ -1,90 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor Cadastra</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor Cadastra</title>
-  <link rel="stylesheet" href="/main.css" />
-</head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__box">
+          <div class="header__logo">
+            <img src="/img/logo.png" alt="" class="header__logo--image" />
+          </div>
 
-<body>
-  <header class="header">
-    <div class="header__container">
-      <div class="header__box">
-        <div class="header__logo">
-          <img src="/img/logo.png" alt="" class="header__logo--image"/>
+          <div class="header__minicart">
+            <img src="/img/minicart-icon.png" class="header__minicart--icon" />
+            <span class="header__minicart--count">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="category">
+      <section id="title" class="category__container">
+        <div class="category__top">
+          <div class="category__title">
+            <h1>Blusas</h1>
+          </div>
+
+          <select class="category__orderby">
+            <option value="">Ordenar por:</option>
+            <option value="OrderByPriceASC" class="category__orderby--option">
+              Mais recentes
+            </option>
+            <option value="OrderByPriceDESC" class="category__orderby--option">
+              Menor preço
+            </option>
+            <option
+              value="OrderByTopSaleDESC"
+              class="category__orderby--option"
+            >
+              Maior preço
+            </option>
+          </select>
+        </div>
+      </section>
+
+      <section id="content" class="category__container">
+        <div class="category__wrapper">
+          <div class="filter">
+            <div class="filter__box">
+              <h3 class="filter__title">Cores</h3>
+              <div id="filter-color" class="filter__list"></div>
+            </div>
+
+            <div class="filter__box">
+              <h3 class="filter__title">Tamanhos</h3>
+              <div id="filter-size" class="filter__list"></div>
+            </div>
+
+            <div class="filter__box">
+              <h3 class="filter__title">Faixa de Preço</h3>
+              <div id="filter-price" class="filter__list"></div>
+            </div>
+          </div>
+
+          <div class="shelf">
+            <div id="shelf-list" class="shelf__list"></div>
+
+            <div class="shelf__load">
+              <button class="shelf__load--button">CARREGAR MAIS</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">CADASTRA: IMPLANTAÇÃO DE E-COMMERCE VTEX</p>
+    </footer>
+
+    <div class="minicart">
+      <div class="minicart__shadow"></div>
+      <div class="minicart__wrapper">
+        <div class="minicart__header">
+          <button class="minicart__close">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.00168 6.52803C8.05174 6.47983 8.0968 6.43851 8.13997 6.39532C10.1505 4.38469 12.1616 2.37468 14.1702 0.362165C14.48 0.0516813 14.8367 -0.0778958 15.2628 0.0472994C15.9567 0.251368 16.2258 1.0883 15.7859 1.66294C15.7321 1.73305 15.6701 1.79628 15.6076 1.85887C13.6089 3.85887 11.6091 5.85886 9.60921 7.85823C9.56541 7.90205 9.51222 7.93773 9.42024 8.01222C9.49908 8.06543 9.55727 8.09297 9.59982 8.13554C11.6153 10.1487 13.6283 12.1643 15.6439 14.1775C15.9204 14.4541 16.0568 14.7746 15.9774 15.1665C15.8097 15.9909 14.8467 16.2394 14.2804 15.743C14.2334 15.7017 14.1896 15.6573 14.1452 15.6134C12.146 13.6141 10.1461 11.6141 8.14748 9.61347C8.10368 9.56965 8.06676 9.51894 8.01607 9.4601C7.95413 9.51894 7.9097 9.56026 7.86652 9.60282C5.85226 11.6172 3.83675 13.6304 1.82499 15.6472C1.49773 15.9753 1.11728 16.0836 0.684892 15.9339C-0.00655169 15.6948 -0.222432 14.8316 0.260014 14.2814C0.304442 14.2307 0.353249 14.1831 0.401431 14.1355C2.40067 12.1355 4.39992 10.1362 6.39979 8.13616C6.44046 8.09547 6.48489 8.05917 6.5387 8.01097C6.48739 7.95713 6.44672 7.91269 6.40417 7.87075C4.3874 5.85197 2.36876 3.83445 0.351998 1.81568C-0.114179 1.34933 -0.114805 0.680161 0.346366 0.267017C0.737454 -0.0835295 1.31814 -0.0897893 1.71611 0.253872C1.77931 0.308331 1.83688 0.368425 1.8957 0.427893C3.88806 2.41975 5.8798 4.41223 7.87153 6.40471C7.91158 6.44477 7.95288 6.48233 8.00106 6.52866L8.00168 6.52803Z"
+                fill="#FB953E"
+              />
+            </svg>
+          </button>
+          <div class="minicart__title">Carrinho</div>
         </div>
 
-        <div class="header__minicart">
-          <img src="/img/minicart-icon.png" class="header__minicart--icon"/>
-          <span class="header__minicart--count">0</span>
+        <div class="minicart__list">
+          <p class="minicart__empty">Nenhum produto no carrinho!</p>
+        </div>
+
+        <div class="minicart__footer">
+          <div class="minicart__total">
+            <span>Total:</span>
+            <p class="minicart__total--price">R$ 0,00</p>
+          </div>
+          <button class="minicart__keep-buying">Continuar Comprando</button>
+          <button class="minicart__finish">Finalizar Compra</button>
         </div>
       </div>
     </div>
-  </header>
+  </body>
 
-  <main class="category">
-    <section id="title" class="category__container">
-      <div class="category__top">
-        <div class="category__title">
-          <h1>Blusas</h1>
-        </div>
-
-        <select class="category__orderby">
-          <option value="">Ordenar por:</option>
-          <option value="OrderByPriceASC" class="category__orderby--option">Mais recentes</option>
-          <option value="OrderByPriceDESC" class="category__orderby--option">Menor preço</option>
-          <option value="OrderByTopSaleDESC" class="category__orderby--option">Maior preço</option>
-        </select>
-      </div>
-    </section>
-
-    <section id="content" class="category__container">
-      <div class="category__wrapper">
-        <div class="filter">
-          <div class="filter__box">
-            <h3 class="filter__title">Cores</h3>
-            <div id="filter-color" class="filter__list">
-              
-            </div>
-          </div>
-
-          <div class="filter__box">
-            <h3 class="filter__title">Tamanhos</h3>
-            <div id="filter-size" class="filter__list">
-              
-            </div>
-          </div>
-
-          <div class="filter__box">
-            <h3 class="filter__title">Faixa de Preço</h3>
-            <div id="filter-price" class="filter__list">
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="shelf">
-          <div id="shelf-list" class="shelf__list">
-          </div>
-
-          <div class="shelf__load">
-            <button class="shelf__load--button">
-              CARREGAR MAIS
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="footer__text">CADASTRA: IMPLANTAÇÃO DE E-COMMERCE VTEX</p>
-  </footer>
-</body>
-
-<script src="/bundle.js"></script>
-
+  <script src="/bundle.js"></script>
 </html>
