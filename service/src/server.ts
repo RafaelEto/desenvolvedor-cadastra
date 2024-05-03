@@ -13,4 +13,4 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(routes);
-app.listen(5001, () => console.log("server rodando!!!"));
+app.listen(5001, () => console.log("Server Started!"));
