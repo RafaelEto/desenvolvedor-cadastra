@@ -6,3 +6,8 @@ export interface Filters {
     max: number;
   };
 }
+
+export interface FilterOption {
+  value: string;
+  type: string;
+}
