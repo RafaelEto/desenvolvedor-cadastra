@@ -24,13 +24,17 @@
   }
 
   &__orderby {
-    border: 1px solid #000;
+    border: 1px solid #666;
     border-radius: 0;
     padding: 10px;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
-    color: #000;
+    color: #666;
+
+    &-mobile {
+      display: none;
+    }
 
     &:focus-visible {
       outline: 0;
@@ -51,5 +55,122 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+  }
+
+  &__actions-mobile {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    &__open-filter {
+      display: block;
+    }
+
+    &__top {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0 34px;
+    }
+
+    &__title {
+      margin: 0 0 12px;
+    }
+
+    &__actions-mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__orderby {
+      display: none;
+
+      &-mobile {
+        display: block;
+
+        &--wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #fff;
+          z-index: 10;
+          transition: ease-out .3s;
+          transform: translateX(-100%);
+    
+          &.open {
+            transform: translateX(0);
+          }
+        }
+    
+        &--header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px;
+          border-bottom: 1px solid #666;
+          margin-bottom: 30px;
+
+          &-title {
+            font-size: 28px;
+            line-height: 38px;
+            color: #666;
+            margin: 0;
+          }
+        }
+    
+        &--title {
+          font-size: 24px;
+          line-height: 32px;
+          color: #666;
+          text-transform: uppercase;
+          margin: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+    
+          &.open {
+            .category__orderby-mobile--icon {
+              transform: rotate(180deg);
+            }
+          }
+        }
+    
+        &--icon {
+          transition: all .2s;
+        }
+    
+        &--item {
+          padding: 0 16px;
+          margin-bottom: 30px;
+        }
+
+        &--button {
+          border: none;
+          background: none;
+          padding: 0;
+          margin: 0;
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 30px;
+          color: #000;
+        }
+      }
+    }
+
+    &__open-filter,
+    &__open-orderby {
+      width: 50%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #666;
+      font-size: 24px;
+      font-weight: 400;
+      color: #666;
+    }
   }
 }
