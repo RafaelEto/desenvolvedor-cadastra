@@ -1,6 +1,8 @@
 # Projeto teste para desenvolvedor Cadastra
 
-Este é um projeto desenvolvido como teste para desenvolvedor na empresa Cadastra, em que o objetivo é desenvolver uma Página de Categoria de e-commerce listando os produtos de uma categoria(Blusas), com as funcionalidades de **filtro**, **ordenação**, **paginação** de produtos e para o **adicionar ao carrinho**, como diferencial foi desenvolvido a exibição do carrinho, que abre apenas clicando no ícone do carrinho. Também foi desenvolvida uma versão para celulares, garantindo a responsividade do layout. Além disso foi desenvolvida uma simples API utilizando Express.js no Node.js para **listar os produtos** e **filtros baseado nos produtos disponíveis**, além disso toda a lógica de filtro/ordenação/paginação também está sendo feita pelo Back-end.
+Este é um projeto desenvolvido como teste para desenvolvedor na empresa Cadastra, em que o objetivo é desenvolver uma Página de Categoria de e-commerce listando os produtos de uma categoria(Blusas), com as funcionalidades de **filtro**, **ordenação**, **paginação** de produtos e para o **adicionar ao carrinho**, como diferencial foi desenvolvido a exibição do carrinho, que abre apenas clicando no ícone do carrinho. Também foi desenvolvida uma versão para celulares, garantindo a responsividade do layout. 
+
+Além disso foi desenvolvida uma simples API utilizando Express.js no Node.js para **listar os produtos** e **filtros baseado nos produtos disponíveis**, além disso toda a lógica de filtro/ordenação/paginação também está sendo feita pelo Back-end.
 
 ----
 
