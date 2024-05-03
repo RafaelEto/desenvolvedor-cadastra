@@ -1,19 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor Cadastra</title>
+    <link href="https://cadastra.com/img/site/favicon-light.png" rel="icon" />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor Cadastra</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__box">
+          <div class="header__logo">
+            <img src="/img/logo.png" alt="" class="header__logo--image" />
+          </div>
 
-<body>
+          <div class="header__minicart">
+            <img src="/img/minicart-icon.png" class="header__minicart--icon" />
+            <span class="header__minicart--count">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-</body>
-<h1>Desafio Cadastra</h1>
+    <main class="category">
+      <section id="title" class="category__container">
+        <div class="category__top">
+          <div class="category__title">
+            <h1>Blusas</h1>
+          </div>
 
-<script src="bundle.js"></script>
+          <div class="category__actions-mobile">
+            <div class="category__open-filter">Filtrar</div>
+            <div class="category__open-orderby">Ordenar</div>
+          </div>
+          <select class="category__orderby" id="orderby">
+            <option value="">Ordenar por:</option>
+            <option value="newer" class="category__orderby--option">
+              Mais recentes
+            </option>
+            <option value="asc" class="category__orderby--option">
+              Menor preço
+            </option>
+            <option value="desc" class="category__orderby--option">
+              Maior preço
+            </option>
+          </select>
+        </div>
+      </section>
 
+      <section id="content" class="category__container">
+        <div class="category__wrapper">
+          <div class="filter">
+            <div class="filter__wrapper">
+              <div class="filter__header">
+                <div class="filter__header--title">FILTRAR</div>
+                <div class="filter__close">
+                  <svg
+                    width="19"
+                    height="20"
+                    viewBox="0 0 19 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0.5 18.852L17.5547 1.00001" stroke="black" />
+                    <line
+                      y1="-0.5"
+                      x2="25.2899"
+                      y2="-0.5"
+                      transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)"
+                      stroke="black"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="filter__content">
+                <div class="filter__box">
+                  <h3 class="filter__title">
+                    Cores
+                    <div class="filter__icon">
+                      <svg
+                        width="20"
+                        height="15"
+                        viewBox="0 0 20 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L10 14L19 1.0135"
+                          stroke="#666666"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </h3>
+                  <div id="filter-color" class="filter__list"></div>
+                </div>
+
+                <div class="filter__box">
+                  <h3 class="filter__title">
+                    Tamanhos
+                    <div class="filter__icon">
+                      <svg
+                        width="20"
+                        height="15"
+                        viewBox="0 0 20 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L10 14L19 1.0135"
+                          stroke="#666666"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </h3>
+                  <div id="filter-size" class="filter__list"></div>
+                </div>
+
+                <div class="filter__box">
+                  <h3 class="filter__title">
+                    Faixa de Preço
+                    <div class="filter__icon">
+                      <svg
+                        width="20"
+                        height="15"
+                        viewBox="0 0 20 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L10 14L19 1.0135"
+                          stroke="#666666"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </h3>
+                  <div id="filter-price" class="filter__list">
+                    <div class="filter__item">
+                      <input
+                        class="filter__input"
+                        type="checkbox"
+                        id="1"
+                        name="1"
+                        data-filter-type="price"
+                      />
+                      <label class="filter__label" for="0-50"
+                        >de R$0 até R$50</label
+                      >
+                    </div>
+                    <div class="filter__item">
+                      <input
+                        class="filter__input"
+                        type="checkbox"
+                        id="2"
+                        name="2"
+                        data-filter-type="price"
+                      />
+                      <label class="filter__label" for="51-150"
+                        >de R$51 até R$150</label
+                      >
+                    </div>
+                    <div class="filter__item">
+                      <input
+                        class="filter__input"
+                        type="checkbox"
+                        id="3"
+                        name="3"
+                        data-filter-type="price"
+                      />
+                      <label class="filter__label" for="151-300"
+                        >de R$151 até R$300</label
+                      >
+                    </div>
+                    <div class="filter__item">
+                      <input
+                        class="filter__input"
+                        type="checkbox"
+                        id="4"
+                        name="4"
+                        data-filter-type="price"
+                      />
+                      <label class="filter__label" for="301-500"
+                        >de R$301 até R$500</label
+                      >
+                    </div>
+                    <div class="filter__item">
+                      <input
+                        class="filter__input"
+                        type="checkbox"
+                        id="5"
+                        name="5"
+                        data-filter-type="price"
+                      />
+                      <label class="filter__label" for="500"
+                        >a partir de R$ 500</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf">
+            <div id="shelf-list" class="shelf__list"></div>
+
+            <div class="shelf__load">
+              <button class="shelf__load--button">CARREGAR MAIS</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">CADASTRA: IMPLANTAÇÃO DE E-COMMERCE VTEX</p>
+    </footer>
+
+    <div class="minicart">
+      <div class="minicart__shadow"></div>
+      <div class="minicart__wrapper">
+        <div class="minicart__header">
+          <button class="minicart__close">
+            <svg
+              width="19"
+              height="20"
+              viewBox="0 0 19 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0.5 18.852L17.5547 1.00001" stroke="black" />
+              <line
+                y1="-0.5"
+                x2="25.2899"
+                y2="-0.5"
+                transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)"
+                stroke="black"
+              />
+            </svg>
+          </button>
+          <div class="minicart__title">Carrinho</div>
+        </div>
+
+        <div class="minicart__list"></div>
+
+        <div class="minicart__footer">
+          <div class="minicart__total">
+            <span>Total:</span>
+            <p class="minicart__total--price">R$ 0,00</p>
+          </div>
+          <button class="minicart__keep-buying">Continuar Comprando</button>
+          <button class="minicart__finish">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="category__orderby-mobile">
+      <div class="category__orderby-mobile--wrapper">
+        <div class="category__orderby-mobile--header">
+          <h3 class="category__orderby-mobile--title">ORDENAR</h3>
+          <div class="category__orderby-mobile--close">
+            <svg
+              width="19"
+              height="20"
+              viewBox="0 0 19 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0.5 18.852L17.5547 1.00001" stroke="black" />
+              <line
+                y1="-0.5"
+                x2="25.2899"
+                y2="-0.5"
+                transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)"
+                stroke="black"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="category__orderby-mobile--list">
+          <div class="category__orderby-mobile--item">
+            <button
+              class="category__orderby-mobile--button"
+              data-order-value="newer"
+            >
+              Mais recente
+            </button>
+          </div>
+          <div class="category__orderby-mobile--item">
+            <button
+              class="category__orderby-mobile--button"
+              data-order-value="desc"
+            >
+              Maior preço
+            </button>
+          </div>
+          <div class="category__orderby-mobile--item">
+            <button
+              class="category__orderby-mobile--button"
+              data-order-value="asc"
+            >
+              Menor preço
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/bundle.js"></script>
 </html>
