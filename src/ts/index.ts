@@ -477,6 +477,7 @@ function sendToMinicart(product: Minicart) {
   localStorage.setItem("carrinho", JSON.stringify(minicartProducts));
 
   updateMinicartQuantity();
+  showBuyProductToast();
   listMinicartProducts();
 }
 
@@ -495,6 +496,15 @@ function updateMinicartQuantity() {
   if (minicartCountIcon) {
     minicartCountIcon.textContent = minicartTotal.toString();
   }
+}
+
+function showBuyProductToast() {
+  const toastWrapper = document.querySelector(".toast");
+  toastWrapper.classList.add("visible");
+
+  setInterval(function () {
+    toastWrapper.classList.remove("visible");
+  }, 2500);
 }
 
 function openMinicart() {
